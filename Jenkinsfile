@@ -10,7 +10,7 @@ node('linux') {
 		sh 'ant -f build.xml -v'   
 	} 
 	stage('Deploy') {    
-		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-${BUILD_NUMBER}.jar s3://jenkins-s3bucket-872tx28e6oe9'   
+		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-${BUILD_NUMBER}.jar s3://jenkins-stack-s3bucket-872tx28e6oe9'   
 	}
 	stage('Report') {   
 		withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'eda13ca4-bf02-45df-a032-916057a59789', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
